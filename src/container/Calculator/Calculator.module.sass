@@ -2,9 +2,10 @@
   background-color: red
 
 .container
-  height: 700px
-  width: 450px
+  height: 75vh
+  width: 50vh
   word-wrap: break-word
+  margin-bottom: 50px
 
 .equationContainer
   background-color: #121212
@@ -49,3 +50,11 @@
     color: #fff
     &:hover
       background: linear-gradient(135deg, #392d99 0%, #6d47c1 100%)
+
+$information-phone: "only screen and (max-width : 568px)"
+
+@media #{$information-phone}
+  .container
+    height: 100%
+    width: 100vw
+    margin-bottom: 0

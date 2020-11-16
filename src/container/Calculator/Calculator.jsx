@@ -7,9 +7,9 @@ class Calculator extends Component {
         equationOld: ''
     }
     addCharacter = (val) => {
-        this.setState({equation: this.state.equation + val})
+        if (!(!this.isItAnArithmeticOperation(this.state.equation.substr(-1, 1)) && !this.isItAnArithmeticOperation(val)))
+            this.setState({equation: this.state.equation + val})
     }
-
     clear = () => {
         this.setState({equation: ''})
     }
@@ -17,9 +17,9 @@ class Calculator extends Component {
         this.setState({equation: this.state.equation.slice(0, -1)})
     }
     isItAnArithmeticOperation = (val) => {
-        if (
-            '+' === val && '-' === val && '/' === val && '*' === val && ',' === val
-        ) return true
+        return (
+            '+' !== val && '-' !== val && '/' !== val && '*' !== val && ',' !== val
+        )
     }
     addTextToEquation = (val, index) => {
         const {equation} = this.state
@@ -30,18 +30,18 @@ class Calculator extends Component {
     }
     percent = () => {
         const {equation} = this.state
-
-        if (!this.isItAnArithmeticOperation(equation.substr(-1, 1))) {
-            if (!this.isItAnArithmeticOperation(equation.substr(-2, 1))) {
-                this.setState({equation: this.addTextToEquation(',', -2)})
-            } else {
+        const length=equation.length
+        if (length>1) {
+            if (length===2) {
                 this.setState({equation: this.addTextToEquation(',', -1)})
+            } else {
+                this.setState({equation: this.addTextToEquation(',', -2)})
             }
         }
     }
     equal = () => {
         const {equation} = this.state
-        this.setState({equation: eval(equation), equationOld: equation})
+        this.setState({equation: eval(equation) + '', equationOld: equation})
     }
     buttons = [
         {
@@ -136,8 +136,9 @@ class Calculator extends Component {
                     {equation}
                 </div>
                 <div className={styles.buttons}>
-                    {this.buttons.map((val) => (
+                    {this.buttons.map((val, i) => (
                         <div
+                            key={i}
                             className={val?.style}
                             onClick={val.action}
                         >

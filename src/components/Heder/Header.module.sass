@@ -1,11 +1,48 @@
 .header
+	height: 80px
 	font-size: 32px
 	width: 100%
-	padding-top: 20px
-	padding-bottom: 20px
+	padding-top: 10px
+	padding-bottom: 10px
 	position: sticky
 	top: 0
 	z-index: 500
 	text-align: center
 	color: #fff
 
+%button
+	font-size: 20px
+	cursor: pointer
+	background-color: transparent
+	border: none
+	transition: 0.1s
+	margin: 0 10px
+
+.button
+	@extend %button
+	padding-top: 0
+	border-bottom: 0 #fff solid
+	color: rgb(214, 210, 210)
+	height: 70px
+
+	&:hover
+		padding-top: 5px
+		border-bottom: 5px #fff solid
+		color: #fff
+		height: 70px
+
+.buttonActive
+	@extend %button
+	padding-top: 5px
+	border-bottom: 5px #fff solid
+	color: #fff
+	height: 70px
+
+$information-phone: "only screen and (max-width : 568px)"
+
+@media #{$information-phone}
+	.button
+		font-size: 15px
+
+	.buttonActive
+		font-size: 15px

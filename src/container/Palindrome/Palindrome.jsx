@@ -25,7 +25,7 @@ class Palindrome extends Component {
                     onChange={e=>this.palindromeDecoder(e.target.value)}
                 />
                 Is the text a palindrome?
-                {palindromeValidation && palindrome && 'true'}
+                {palindromeValidation && palindrome ?  ' True' : ' False'}
             </div>
         )
     }

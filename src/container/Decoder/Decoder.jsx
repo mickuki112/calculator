@@ -8,20 +8,21 @@ class Decoder extends Component {
     }
 
     deCode = (val) => {
-        if(val) {
+        if (val) {
             const arrayLetters = val.replace(/(\s\s\s*)/g, ' ').split(" ")
-            console.log(arrayLetters)
             const deCodeText = arrayLetters.map((numbers) => {
-                numbers=numbers.replace(/\D/g,"")
-                if(numbers)
-                    return String.fromCharCode(
-                        numbers.split("").reduce((previousValue, currentValue) => {
-                            return parseInt(previousValue) + parseInt(currentValue)
-                        })
+                numbers = numbers.replace(/\D/g, "")
+                return numbers &&
+                    String.fromCharCode(
+                        numbers
+                            .split("")
+                            .reduce((previousValue, currentValue) => {
+                                return parseInt(previousValue) + parseInt(currentValue)
+                            })
                     )
             }).join("")
             this.setState({deCodeText: deCodeText, code: val})
-        }else{
+        } else {
             this.setState({code: val})
         }
     }
@@ -33,14 +34,13 @@ class Decoder extends Component {
             <div className={styles.container}>
                 <textarea
                     name='deCode'
-                    className={styles.input}
-                    placeholder='Code'
+                    placeholder='code'
                     value={code}
                     onChange={e => this.deCode(e.target.value)}
                 />
                 <p className={styles.text}>
-                Decode:
-                {deCodeText}
+                    Decode:
+                    {deCodeText}
                 </p>
             </div>
         )

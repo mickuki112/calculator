@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
-body
-  margin: 0
-  background: rgb(104,50,144)
-  background: linear-gradient(135deg, rgba(104,50,144,1) 0%, rgba(192,111,90,1) 100%)
-  font-family: 'Lato', sans-serif
+body {
+  margin: 0;
+  background: rgb(104,50,144);
+  background: linear-gradient(135deg, rgba(104,50,144,1) 0%, rgba(192,111,90,1) 100%);
+  font-family: 'Lato', sans-serif;
   /*overflow-x: hidden;*/
+}
