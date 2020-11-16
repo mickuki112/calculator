@@ -1,0 +1,51 @@
+.arithmeticOperation
+  background-color: red
+
+.container
+  height: 700px
+  width: 450px
+  word-wrap: break-word
+
+.equationContainer
+  background-color: #121212
+  height: 30%
+  color: #fff
+  font-size: 34px
+  padding: 10px
+  text-align: right
+  overflow: auto
+
+  .equationOld
+    color: #aaa
+    font-size: 24px
+
+
+.buttons
+  display: grid
+  height: 70%
+  grid-template-columns: auto auto auto auto
+  grid-template-rows: auto
+  cursor: pointer
+
+  div
+    display: grid
+    justify-content: center
+    align-items: center
+    flex-grow: 1
+    font-size: 26px
+    background: linear-gradient(135deg, #bbb 0%, #ddd 100%)
+    &:hover
+      background: linear-gradient(135deg, #aaa 0%, #ddd 100%)
+
+  .equal
+    background: linear-gradient(135deg, #83123d 0%, #ad2d66 100%)
+    grid-area: 5/3/5/5
+    color: #fff
+    &:hover
+      background: linear-gradient(135deg, #73022d 0%, #ad2d66 100%)
+
+  .arithmeticOperation
+    background: linear-gradient(135deg, #493da9 0%, #6d47c1 100%)
+    color: #fff
+    &:hover
+      background: linear-gradient(135deg, #392d99 0%, #6d47c1 100%)
